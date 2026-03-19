@@ -5,20 +5,25 @@ using MySql.Data.MySqlClient;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy =>
+    options.AddPolicy("MinhaPolicy", policy =>
     {
         policy.AllowAnyOrigin()
-              .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowAnyHeader();
     });
 });
+
+builder.Services.AddControllers();
 
 // Add services
 builder.Services.AddEndpointsApiExplorer();
 
 
 var app = builder.Build();
-app.UseCors();
+app.UseCors("MinhaPolicy");
+
+app.MapControllers();
+
 app.rotas();
 app.rotasUsuario();
 app.rotasContest();

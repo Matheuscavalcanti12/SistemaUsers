@@ -55,6 +55,7 @@ public static  class RotasUsuario
 
                 return Results.Ok(new { mensagem = "Usuario inserido!", Login = novoUsuario });
 
-         });
+         })
+         .RequireCors("MinhaPolicy");
      }
 }
