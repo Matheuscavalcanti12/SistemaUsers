@@ -2,6 +2,7 @@ using Contest;
 using rotas;
 using MySql.Data.MySqlClient;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
@@ -9,7 +10,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy =>
     {
         policy
-            .AllowAnyOrigin()
+            .WithOrigins("http://127.0.0.1:5500")
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -24,20 +25,12 @@ app.UseCors();
 
 
 app.MapControllers();
-app.rotas();
+
 app.rotasUsuario();
 app.rotasContest();
-
-app.Run();
-
-// rotas
-app.MapControllers();
 app.rotas();
-app.rotasUsuario();
-app.rotasContest();
 
 app.Run();
-
 // hoje aprendi que posso criar classes com atributos e metodos e chamala no meu programa, ou melhor, na minha API
 //Criando noção em padrâo MVC
 //aprendi que posso colocar minha api em uma classe na m
