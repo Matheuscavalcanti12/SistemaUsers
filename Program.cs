@@ -15,13 +15,20 @@ builder.Services.AddCors(options =>
     });
 });
 
-// serviços
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
 app.UseCors();
+
+
+app.MapControllers();
+app.rotas();
+app.rotasUsuario();
+app.rotasContest();
+
+app.Run();
 
 // rotas
 app.MapControllers();
