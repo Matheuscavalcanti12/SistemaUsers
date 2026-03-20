@@ -3,31 +3,31 @@ using rotas;
 using MySql.Data.MySqlClient;
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("MinhaPolicy", policy =>
+    options.AddDefaultPolicy(policy =>
     {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
+        policy
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
     });
 });
 
+// serviços
 builder.Services.AddControllers();
-
-// Add services
 builder.Services.AddEndpointsApiExplorer();
 
-
 var app = builder.Build();
-app.UseCors("MinhaPolicy");
 
+app.UseCors();
+
+// rotas
 app.MapControllers();
-
 app.rotas();
 app.rotasUsuario();
 app.rotasContest();
-
 
 app.Run();
 
