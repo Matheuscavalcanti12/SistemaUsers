@@ -27,6 +27,7 @@ app.MapControllers();
 
 app.rotasUsuario();
 app.rotasContest();
+app.LoginRequest();
 app.rotas();
 
 app.Run();
