@@ -58,3 +58,33 @@ public static  class RotasUsuario
          });
      }
 }
+
+
+public static class RotasLogin
+{
+   public static void LoginRequest(this WebApplication app)
+   {
+      app.MapPost("/login", (LoginRequest loginRequest) => {
+         string conexao = "server=localhost;database=Login;user=root;password=;";
+         using var conn = new MySqlConnection(conexao);
+         conn.Open();
+
+         string sql = "SELECT * FROM usuario WHERE email = @email AND senha = @senha";
+         using var cmd = new MySqlCommand(sql, conn);
+
+         cmd.Parameters.AddWithValue("@email", loginRequest.email);
+         cmd.Parameters.AddWithValue("@senha", loginRequest.senha);
+
+         using var reader = cmd.ExecuteReader();
+
+         if (reader.Read())
+         {
+            return Results.Ok(new { mensagem = "Login bem-sucedido!" });
+         }
+         else
+         {
+            return Results.Unauthorized();
+         }
+      });
+   }
+}

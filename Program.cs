@@ -20,7 +20,7 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
-// 👇 MUITO IMPORTANTE
+
 app.UseCors();
 
 app.MapControllers();
