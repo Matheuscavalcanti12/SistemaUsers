@@ -67,6 +67,7 @@ public static class RotasLogin
    public static void LoginRequest(this WebApplication app)
    {
       app.MapPost("/login", (LoginRequest loginRequest) => {
+          
          string conexao = "server=localhost;database=Login;user=root;password=;";
          using var conn = new MySqlConnection(conexao);
          conn.Open();
