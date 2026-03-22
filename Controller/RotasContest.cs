@@ -20,7 +20,8 @@ app.MapGet("/usuarios", () =>
    using var cmd = new MySqlCommand(sql , conn);
    //Variavel que executa os comandos sql e guarda o resultado
    using var reader = cmd.ExecuteReader();
-
+//para mostarr todos os usuarios, é necessario criar uma lista de usuarios e,
+// adicionar cada usuario encontrado nela, para depois retornar a lista completa
    List<Usuario> Lista = new List<Usuario>();
    while (reader.Read()){
       Usuario u = new Usuario();
@@ -59,9 +60,10 @@ public static  class RotasUsuario
      }
 }
 
-
+//inicialização da classe
 public static class RotasLogin
 {
+   //inicialização do metodo, sendo LoginRequest o nome da rota
    public static void LoginRequest(this WebApplication app)
    {
       app.MapPost("/login", (LoginRequest loginRequest) => {
@@ -74,7 +76,7 @@ public static class RotasLogin
 
          cmd.Parameters.AddWithValue("@email", loginRequest.email);
          cmd.Parameters.AddWithValue("@senha", loginRequest.senha);
-
+       //variavel que executa os comandos sql e guarda o resultado
          using var reader = cmd.ExecuteReader();
 
          if (reader.Read())
