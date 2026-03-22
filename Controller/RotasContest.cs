@@ -79,9 +79,12 @@ public static class RotasLogin
        //variavel que executa os comandos sql e guarda o resultado
          using var reader = cmd.ExecuteReader();
 
+       
+
          if (reader.Read())
          {
             return Results.Ok(new { mensagem = "Login bem-sucedido!" });
+            
          }
          else
          {
