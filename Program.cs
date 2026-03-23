@@ -24,6 +24,7 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
     });
 });
+//autenticação do token
 
 //converte jwt em bytes 
 var key = Encoding.UTF8.GetBytes("minha_chave_super_secreta_3112");
@@ -31,8 +32,10 @@ var key = Encoding.UTF8.GetBytes("minha_chave_super_secreta_3112");
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
+        //permite que o uso da rota sem https
         options.RequireHttpsMetadata = false;
         options.SaveToken = true;
+        //regras de validação 
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
