@@ -94,3 +94,7 @@ public static class RotasLogin
       });
    }
 }
+
+//proximo passo:
+//incluir jwt nas validações de login,
+//app.mapPost... entre as outras validações de rota
