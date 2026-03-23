@@ -7,8 +7,13 @@ Projeto simples de API REST desenvolvido com ASP.NET Core + MySQL, permitindo ca
 📌 Funcionalidades
 
 Cadastro de usuários
+
 Listagem de usuários
+
+autenticação de usuarios com JWT
+
 Integração com banco de dados MySQL
+
 Testes via Postman ou Front-end HTML
 
 ---
@@ -26,7 +31,9 @@ HTML, CSS e JavaScript (para testes)
 📂 Estrutura do Projeto
 
 RotasUsuario → Cadastro de usuários (POST)
+
 RotasContest → Listagem de usuários (GET)
+
 Models → Classes de dados (Usuario, NovoUsuario)
 
 ---
@@ -36,7 +43,9 @@ Models → Classes de dados (Usuario, NovoUsuario)
 Você pode testar usando:
 
 Postman
+
 Insomnia
+
 Ou o arquivo HTML de cadastro
 
 ---
@@ -51,7 +60,6 @@ CORS pode precisar ser habilitado para integração com front-end
 
 🚀 Próximos passos
 
-🔑 Autenticação com JWT
 🔒 Criptografia de senha
 🎨 Melhorar interface do usuário
 
