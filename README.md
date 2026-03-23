@@ -51,7 +51,6 @@ CORS pode precisar ser habilitado para integração com front-end
 
 🚀 Próximos passos
 
-🔐 Implementar login
 🔑 Autenticação com JWT
 🔒 Criptografia de senha
 🎨 Melhorar interface do usuário
