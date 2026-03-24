@@ -333,3 +333,4 @@ C:\Users\Aluno\SistemaUsers\obj\Debug\net8.0\refint\Web.dll
 C:\Users\Aluno\SistemaUsers\obj\Debug\net8.0\Web.pdb
 C:\Users\Aluno\SistemaUsers\obj\Debug\net8.0\Web.genruntimeconfig.cache
 C:\Users\Aluno\SistemaUsers\obj\Debug\net8.0\ref\Web.dll
+C:\Users\mathe\OneDrive\Documentos\WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
