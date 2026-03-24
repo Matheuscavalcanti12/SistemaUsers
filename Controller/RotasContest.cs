@@ -85,16 +85,9 @@ public static class RotasLogin
 
          if (reader.Read())
          {
-         Console.WriteLine("Entrou no login válido");
-           // pega o role do banco
-        string role = reader["role"]?.ToString() ?? "user";
+           Console.WriteLine("Entrou no login válido");
 
-        // cria o token
-        var tokenService = new JWT.TokenService();
-        var token = tokenService.GerarToken(loginRequest.email, role);
-
-        // retorna o token
-        return Results.Ok(new { token = token });
+           return Results.Ok("LOGIN OK");
             
          }
          else
