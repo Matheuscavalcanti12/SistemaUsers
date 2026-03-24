@@ -9,12 +9,14 @@ public class TokenService
 {
     public string GerarToken(string email, string role)
     {
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("minha_chave_super_secreta_3112"));
+        var key = new SymmetricSecurityKey(
+    Encoding.UTF8.GetBytes("minha_chave_super_secreta_3112_123456789123456789")
+);
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-      /*conjunto de informações que vai pro token,
-      como meus campos de email e role que vao ser validados,
-      são eles que vao no claims
-      */
+        /*conjunto de informações que vai pro token,
+        como meus campos de email e role que vao ser validados,
+        são eles que vao no claims
+        */
         var claims = new[]
         {
         new Claim(ClaimTypes.Name, email),

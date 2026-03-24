@@ -27,7 +27,7 @@ builder.Services.AddCors(options =>
 //autenticação do token
 
 //converte jwt em bytes 
-var key = Encoding.UTF8.GetBytes("minha_chave_super_secreta_3112");
+var key = Encoding.UTF8.GetBytes("minha_chave_super_secreta_3112_123456789123456789");
 //fala pro sistema o tipo de autenticação
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
