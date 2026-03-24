@@ -85,6 +85,7 @@ public static class RotasLogin
 
          if (reader.Read())
          {
+         Console.WriteLine("Entrou no login válido");
            // pega o role do banco
         string role = reader["role"]?.ToString() ?? "user";
 
