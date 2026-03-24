@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -85,11 +85,21 @@
                     senha: document.getElementById("senha").value
                 })
             })
-            .then(r => r.json())
-            .then(d => document.getElementById("mensagem").innerText = d.mensagem)
-            .catch(() => document.getElementById("mensagem").innerText = "Erro");
+                .then(r => r.json())
+                .then(data => {
+                    // salva o token
+                    localStorage.setItem("token", data.token);
+
+                    //  redireciona
+                    window.location.href = "Logados.html";
+                })
+                .catch(err => {
+                    console.error("Erro:", err);
+                    alert("Login falhou");
+                });
         });
     </script>
 
 </body>
+
 </html>

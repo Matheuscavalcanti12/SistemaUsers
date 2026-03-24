@@ -84,7 +84,15 @@ public static class RotasLogin
 
          if (reader.Read())
          {
-            return Results.Ok(new { mensagem = "Login bem-sucedido!" });
+           // pega o role do banco
+        string role = reader["role"]?.ToString() ?? "user";
+
+        // cria o token
+        var tokenService = new JWT.TokenService();
+        var token = tokenService.GerarToken(loginRequest.email, role);
+
+        // retorna o token
+        return Results.Ok(new { token = token });
             
          }
          else
