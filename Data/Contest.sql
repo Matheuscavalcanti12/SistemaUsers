@@ -9,5 +9,7 @@ CREATE TABLE usuario (
     role varchar(200) NOT NULL
 );
 
+insert into usuario (id, email, senha, role ) values (?,?,?,?);
+
 
 select*from usuario;

@@ -1,0 +1,38 @@
+Aprendizados adquiridos durante a criação deste projeto educacional sobre API Rest + ASP.NET+ MySQl
+Padrao MVc:
+ Neste projeto utilizei o padrão de arquitetura MVC, sendo o model contendo as classes e metodos
+ criados para as aplicações. Controller contendo os endpoints que deram funcionalidade ao sistema
+ e a view que contém um html simples, juntamente de css e JS.
+
+ Obersavaçõe sobre a view:
+ CSS e JS não foram colocados em uma pasta a parte devido o sistema começar a apresentar falhas
+ no uso do CORS quando a os arquivos são colocados em pastas a parte.
+--
+
+Program.Cs:
+foi entendido que o program.cs é a base do sistema, nenhuma aplicação funciona caso não esteja
+"linkada" ou sendo utilizada dentro de programCs. Os "links" mencionados estão sendo referidos 
+ao uso dos usings e o app, que significam usar uma aplicação especifica, que referenciamos a partir do nome
+dado a um metodo  da aplicação.
+
+Nele também foi utilizado o uso do CORS, que será falado posteriormente.
+e, também utilizado para o uso do JWT, que contém a autenticação.
+
+--
+CORs:
+O cors neste projeto teve que ser habilitado devido a porta da aplicação web não 
+coincidir com a porta dada pelo dotnet,bloqueando que fosse realizada qualquer aplicação.
+Sendo assim usado o CORS para a liberação de uso de quaisquer portas chamadas junto da aplicação web.
+
+--
+
+JWT:
+Autenticação de usuàrio,issues,audience e senha tendo que ser a mesma utilizada na autenticação
+que esta em programCS, sendo utilizado no read.Header, para autenticar usuario no banco.
+Criação de token testado no postman.
+
+--
+
+Criação das rotas:
+Criação dos endpoints APi Rest, entendo melhor sobre APIs, portas, utilização, conexao com MySQl,
+Entendi melhor sobre erros HTTP
