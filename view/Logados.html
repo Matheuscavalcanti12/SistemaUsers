@@ -1,120 +1,152 @@
 <!DOCTYPE html>
 
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Lista de Usuários</title>
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f6f8;
-        display: flex;
-        justify-content: center;
-        padding-top: 50px;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
 
-    .container {
-        width: 700px;
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+        .container {
+            width: 700px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    h2 {
-        margin: 0;
-    }
+        h2 {
+            margin: 0;
+        }
 
-    .top-bar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
-    }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
 
-    .btn-add {
-        background-color: #28a745;
-        color: white;
-        padding: 8px 12px;
-        border-radius: 4px;
-        text-decoration: none;
-    }
+        .btn-add {
+            background-color: #28a745;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-    th {
-        background-color: #007BFF;
-        color: white;
-        padding: 10px;
-        text-align: left;
-    }
+        th {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
 
-    td {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-    }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
 
-    tr:hover {
-        background-color: #f1f1f1;
-    }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
 
-    .actions {
-        display: flex;
-        gap: 10px;
-    }
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
 
-    button {
-        border: none;
-        padding: 6px 10px;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+        button {
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-    .edit {
-        background-color: #ffc107;
-        color: black;
-    }
+        .edit {
+            background-color: #ffc107;
+            color: black;
+        }
 
-    .delete {
-        background-color: #dc3545;
-        color: white;
-    }
-</style>
+        .delete {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btnLista {
+            background-color: #28a745;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+    </style>
 
 
 </head>
 
 <body>
 
-<div class="container">
-    <div class="top-bar">
-        <h2>Usuários</h2>
-        <a href="#" class="btn-add">+ Novo</a>
+    <div class="container">
+        <div class="top-bar">
+            <h2>Usuários</h2>
+            <a href="#" class="btn-add">+ Novo</a>
+            <button id="btnLista" class="btnLista"> Listar</button>
+        </div>
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody id="tabelaUsuarios"></tbody>
+        </table>
+
+
     </div>
+    <script>
+        document.getElementById("btnLista").addEventListener("submit", function (e) {
+            e.preventDefault()
+        });
 
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
+        fetch("http://localhost:5000/usuarios", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: document.getElementById("email").value,
+                senha: document.getElementById("senha").value
+            })
+                .then(function (dados) {
+                    mensagem.innerText = dados.mensagem;
 
-    <tbody id="tabelaUsuarios"></tbody>
-</table>
-
-
-</div>
-<script>
-    
-</script>
+                })
+                .catch(function () {
+                    mensagem.innerText = "Erro ao Listar!";
+                })
+        
+    });
+    </script>
 
 </body>
+
 </html>
