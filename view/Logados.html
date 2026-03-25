@@ -122,29 +122,23 @@
 
     </div>
     <script>
-        document.getElementById("btnLista").addEventListener("submit", function (e) {
-            e.preventDefault()
-        });
+        document.getElementById("btnLista").addEventListener("click", function (e) {
+            e.preventDefault();
 
-
-        fetch("http://localhost:5000/usuarios", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: document.getElementById("email").value,
-                senha: document.getElementById("senha").value
+            fetch("http://localhost:5000/usuarios", {
+                //nao se cria body em metodo get
+                method: "GET"
             })
+                .then(function (res) {
+                    return res.json();
+                })
                 .then(function (dados) {
-                    mensagem.innerText = dados.mensagem;
-
+                    document.getElementById("mensagem").innerText = dados.mensagem;
                 })
                 .catch(function () {
-                    mensagem.innerText = "Erro ao Listar!";
-                })
-        
-    });
+                    alert('Erro ao listar');
+                });
+        });
     </script>
 
 </body>
