@@ -30,11 +30,7 @@ HTML, CSS e JavaScript (para testes)
 
 📂 Estrutura do Projeto
 
-RotasUsuario → Cadastro de usuários (POST)
-
-RotasContest → Listagem de usuários (GET)
-
-Models → Classes de dados (Usuario, NovoUsuario)
+Projeto desenvolvido em arquitetura de padrão MVC
 
 ---
 
