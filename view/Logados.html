@@ -133,9 +133,31 @@
                     return res.json();
                 })
                 .then(function (dados) {
-                    document.getElementById("mensagem").innerText = dados.mensagem;
+                    console.log(dados);
+                //como queremos listar usuarios do banco isto deve ser feito em formato de tabela
+                    let tabela = document.getElementById("tabelaUsuarios");
+                    tabela.innerHTML = "";
+
+                    dados.forEach(function (usuario) {
+                   //puxando estrutura de tabela que ja existe e referenciando os campos com
+                   //${.....}
+                        dados.forEach(function (usuario) {
+                            tabela.innerHTML += `
+                    <tr>
+                        <td>${usuario.id}</td>
+                        <td>${usuario.email}</td>
+                        <td>
+                            <button onclick="excluir(${usuario.id})">
+                                Excluir
+                            </button>
+                        </td>
+                    </tr>
+                `;
+                        });
+                    })
                 })
-                .catch(function () {
+                .catch(function (erro) {
+                    console.error(erro);
                     alert('Erro ao listar');
                 });
         });
