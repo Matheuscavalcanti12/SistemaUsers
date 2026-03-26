@@ -1,4 +1,5 @@
 
+using Microsoft.AspNetCore.Identity;
 using MySql.Data.MySqlClient;
 
 
@@ -109,17 +110,5 @@ public static class RotasLogin
       });
    }
 
-}
-
-
-public static class RotasDelete
-{
-   public static void RequestDelete(this WebApplication app)
-   {
-      app.MapDelete("/usuarios/{id}",(int id) => {
-         
-      });
-    
-   }
 }
 
